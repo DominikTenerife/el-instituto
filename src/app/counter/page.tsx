@@ -1,8 +1,8 @@
 "use client";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../redux/store';
-import { increment, decrement } from '../redux/slices/counterSlice';
+import { RootState } from '../../redux/store';
+import { increment, decrement } from '../../redux/slices/counterSlice';
 
 export default function Counter() {
     const count = useSelector((state: RootState) => state.counter.value);
