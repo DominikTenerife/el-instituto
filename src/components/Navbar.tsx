@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 import Link from 'next/link';
 import { Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { UploadOutlined, HomeOutlined, CalculatorOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -23,18 +23,41 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem(<Link href="/">Home</Link>, 'home', <MailOutlined />),
-  getItem(<Link href="/upload">Upload</Link>, 'upload', <AppstoreOutlined />),
-  getItem(<Link href="/counter">Counter</Link>, 'counter', <SettingOutlined />),
+  getItem(
+    <Link href="/" className="text-lg p-2">
+      Home
+    </Link>,
+    'home',
+    <HomeOutlined />
+  ),
+  getItem(
+    <Link href="/upload" className="text-lg p-2">
+      Upload
+    </Link>,
+    'upload',
+    <UploadOutlined />
+  ),
+  getItem(
+    <Link href="/counter" className="text-lg p-2">
+      Counter
+    </Link>,
+    'counter',
+    <CalculatorOutlined />
+  ),
 ];
 
 export default function Navbar() {
   return (
-    <Menu
-      mode="vertical"
-      theme="dark"
-      style={{ height: '100vh', width: 256 }}
-      items={items}
-    />
+    <div className="h-screen w-64 bg-gray-900">
+      <div className="text-white text-2xl font-bold p-4">
+        El Instituto
+      </div>
+      <Menu
+        mode="vertical"
+        theme="dark"
+        items={items}
+        className="bg-gray-900"
+      />
+    </div>
   );
 }
