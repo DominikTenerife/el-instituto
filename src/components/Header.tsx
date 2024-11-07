@@ -1,4 +1,3 @@
-import teenagersImg from '../images/teenagers.jpg';
 
 export default function Header() {
     return (

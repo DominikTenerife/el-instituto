@@ -1,8 +1,8 @@
 // src/app/upload/page.tsx
 "use client";
 
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
-import { Button, message, Upload } from 'antd';
+import {  InboxOutlined } from '@ant-design/icons';
+import {  message, Upload } from 'antd';
 import type { UploadProps } from 'antd';
 
 const { Dragger } = Upload;
