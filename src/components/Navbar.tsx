@@ -9,6 +9,9 @@ export default function Navbar() {
           <Link href="/" className="text-white">Home</Link>
         </li>
         <li>
+          <Link href="/upload" className="text-white">Upload</Link>
+        </li> 
+        <li>
           <Link href="/counter" className="text-white">Counter</Link>
         </li>
       </ul>
