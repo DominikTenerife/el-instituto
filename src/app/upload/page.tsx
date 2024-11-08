@@ -7,23 +7,6 @@ import type { UploadProps } from 'antd';
 
 const { Dragger } = Upload;
 
-const uploadProps: UploadProps = {
-  name: 'file',
-  action: '/api/upload', // Update the action URL to your API endpoint
-  headers: {
-    authorization: 'authorization-text',
-  },
-  onChange(info) {
-    if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
 
 const draggerProps: UploadProps = {
   name: 'file',
