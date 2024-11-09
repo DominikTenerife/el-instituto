@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "../styles/globals.css"; // Updated import path
 import ClientProvider from '../components/ClientProvider';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { ConfigProvider } from 'antd';
 
 const geistSans = localFont({
@@ -39,6 +39,7 @@ export default function RootLayout({
               <div className="flex-1">
                 {children}
               </div>
+             
             </div>
           </ClientProvider>
         </ConfigProvider>
