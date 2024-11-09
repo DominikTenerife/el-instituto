@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 import Link from 'next/link';
 import { Menu } from 'antd';
-import { UploadOutlined, HomeOutlined, CalculatorOutlined } from '@ant-design/icons';
+import { FolderOutlined, HomeOutlined, CalculatorOutlined, ReadOutlined, MessageOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -31,11 +31,25 @@ const items: MenuItem[] = [
     <HomeOutlined />
   ),
   getItem(
-    <Link href="/upload" className="text-lg p-2">
-      Upload
+    <Link href="/spaces" className="text-lg p-2">
+      Spaces
     </Link>,
-    'upload',
-    <UploadOutlined />
+    'spaces',
+    <FolderOutlined />
+  ),
+  getItem(
+    <Link href="/exercise" className="text-lg p-2">
+      Exercise
+    </Link>,
+    'exercise',
+    <ReadOutlined />
+  ),
+  getItem(
+    <Link href="/chat" className="text-lg p-2">
+      Chat
+    </Link>,
+    'chat',
+    <MessageOutlined />
   ),
   getItem(
     <Link href="/counter" className="text-lg p-2">
@@ -48,7 +62,7 @@ const items: MenuItem[] = [
 
 export default function Navbar() {
   return (
-    <div className="h-screen w-64 bg-gray-900">
+    <div className="h-screen w-100 bg-gray-900 relative z-50">
       <div className="text-white text-2xl font-bold p-4">
         El Instituto
       </div>

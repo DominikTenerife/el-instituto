@@ -4,7 +4,6 @@ import "../styles/globals.css"; // Updated import path
 import ClientProvider from '../components/ClientProvider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
 import { ConfigProvider } from 'antd';
 
 const geistSans = localFont({
@@ -35,12 +34,10 @@ export default function RootLayout({
       >
         <ConfigProvider>
           <ClientProvider>
-            <div style={{ display: 'flex', minHeight: '100vh' }}>
+            <div className="flex min-h-screen w-full ">
               <Navbar />
-              <div style={{ flex: 1 }}>
-               
-                <main>{children}</main>
-                <Footer />
+              <div className="flex-1">
+                {children}
               </div>
             </div>
           </ClientProvider>
