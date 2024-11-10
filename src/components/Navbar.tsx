@@ -62,7 +62,7 @@ const items: MenuItem[] = [
 
 export default function Navbar() {
   return (
-    <div className="h-screen w-100 bg-gray-900 relative z-50">
+    <div className="h-screen w-100 bg-gray-900 relative z-50 rounded-md">
       <div className="text-white text-2xl font-bold p-4">
         El Instituto
       </div>

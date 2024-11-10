@@ -37,8 +37,45 @@ body {
   }
 }
 
-.slide-in {
-  animation: slideIn 2s ease-out forwards;
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
+.slide-in {
+  animation: slideIn 1.5s ease-out forwards;
+}
 
+.slide-out {
+  animation: slideOut 1.5s ease-out forwards;
+}
+
+/* Custom styles for Dragger component */
+.custom-dragger .ant-upload-drag {
+  border-color: #9ca3af !important; /* Grey color */
+  color: #9ca3af !important; /* Grey color */
+}
+
+.custom-dragger .ant-upload-drag-icon > .anticon {
+  color: #9ca3af !important; /* Grey color */
+}
+
+.custom-dragger .ant-upload-text {
+  color: #9ca3af !important; /* Grey color */
+}
+
+.custom-dragger .ant-upload-hint {
+  color: #9ca3af !important; /* Grey color */
+}
+
+.custom-dragger:hover .ant-upload-drag,
+.custom-dragger:hover .ant-upload-drag-icon > .anticon,
+.custom-dragger:hover .ant-upload-text,
+.custom-dragger:hover .ant-upload-hint {
+  border-color: #ffffff !important; /* White color on hover */
+  color: #ffffff !important; /* White color on hover */
+}
