@@ -1,9 +1,9 @@
-// src/app/upload/page.tsx
+// src/components/UtilityBar.tsx
 "use client";
 
 import { useState } from 'react';
 import { InboxOutlined, LeftOutlined, RightOutlined, DesktopOutlined } from '@ant-design/icons';
-import { message, Upload, Radio, Input, Button } from 'antd';
+import { message, Upload } from 'antd';
 import type { UploadProps } from 'antd';
 
 const { Dragger } = Upload;
@@ -28,7 +28,7 @@ const draggerProps: UploadProps = {
   },
 };
 
-export default function UploadPage() {
+export default function UtilityBarLayout() {
   const [utilityBarVisible, setUtilityBarVisible] = useState(true);
   const [widths, setWidths] = useState({ left: 'w-1/3', right: 'w-2/3' });
   const [utilityBarDisplay, setUtilityBarDisplay] = useState('block');
@@ -52,45 +52,20 @@ export default function UploadPage() {
 
   return (
     <div className="flex min-h-screen w-full">
-      <div className={`${widths.left} ${utilityBarDisplay} bg-slate-900 flex flex-col items-center justify-center rounded-md relative ${utilityBarVisible ? 'slide-in' : 'slide-out'}`}>
-        <div className="absolute top-4 right-4" onClick={handleHideUtilityBar} title="Hide utility bar">
+      <div className={`${widths.left} ${utilityBarDisplay} bg-slate-900 flex items-center justify-center rounded-md relative ${utilityBarVisible ? 'slide-in' : 'slide-out'}`}>
+        <div className= 'absolute top-4 right-4'  onClick={handleHideUtilityBar} title='Hide utility bar'>
           <LeftOutlined className="text-gray-400 hover:text-white text-3xl cursor-pointer" />
         </div>
-
-        <div className="mt-8 w-full max-w-lg p-2.5 text-white">
-          <h2 className="text-2xl font-bold mb-4">My Spaces</h2>
-          
-            <form className='text-white mb-4'>
-            <Radio.Group className='text-white'>
-              <Radio className='text-white' value="biology">Biology</Radio>
-              <Radio className='text-white' value="literature" >Literature</Radio>
-              <Radio className='text-white' value="geography">Geography</Radio>
-              <Radio className='text-white' value="physics">Physics</Radio>
-            </Radio.Group>
-            </form>
-            <Button type="primary" className="mb-4 border-gray-600 text-white hover:border-white hover:text-white" ghost>
-            Create Space
-            </Button>
+        <div className="mt-8 text-white w-full max-w-lg p-2.5">
+          <h1 className='text-4xl'>Utility bar</h1>
+          <h3>Add some content here</h3>
         </div>
-
-        <div className="mt-8 w-full max-w-lg p-2.5">
-          <Dragger {...draggerProps} className="custom-dragger">
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined className="text-gray-400 hover:text-white text-3xl cursor-pointer" />
-            </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">
-              Support for a single or bulk upload. You can upload pdf, docx, xlsx, text files.
-            </p>
-          </Dragger>
-        </div>
-       
       </div>
       <div className={`${widths.right} bg-transparent flex flex-col items-center justify-center relative`}>
-        <div className={`absolute top-4 left-4 ${rightArrowDisplay}`} onClick={handleShowUtilityBar} title="Show utility bar">
+        <div className={`absolute top-4 left-4 ${rightArrowDisplay}`} onClick={handleShowUtilityBar } title='Show utility bar'>
           <RightOutlined className="text-gray-400 hover:text-black text-3xl cursor-pointer" />
         </div>
-        <h1 className="text-gray-400 text-6xl font-bold"><DesktopOutlined /></h1>
+        <h1 className="text-gray-400 text-6xl font-bold"><DesktopOutlined/></h1>
         <h1 className="text-gray-400 text-4xl font-bold">Your Workspace</h1>
       </div>
     </div>
