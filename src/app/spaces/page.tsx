@@ -3,8 +3,9 @@
 
 import { useState } from 'react';
 import { InboxOutlined, LeftOutlined, RightOutlined, DesktopOutlined } from '@ant-design/icons';
-import { message, Upload, Radio, Input, Button } from 'antd';
+import { message, Upload, Radio,  Button } from 'antd';
 import type { UploadProps } from 'antd';
+import CreateSpaceModal from '@/components/modals/CreateSpaceModal';
 
 const { Dragger } = Upload;
 
@@ -33,6 +34,7 @@ export default function UploadPage() {
   const [widths, setWidths] = useState({ left: 'w-1/3', right: 'w-2/3' });
   const [utilityBarDisplay, setUtilityBarDisplay] = useState('block');
   const [rightArrowDisplay, setRightArrowDisplay] = useState('hidden');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleHideUtilityBar = () => {
     setUtilityBarVisible(false);
@@ -48,6 +50,14 @@ export default function UploadPage() {
     setUtilityBarVisible(true);
     setUtilityBarDisplay('block');
     setRightArrowDisplay('hidden');
+  };
+
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
   };
 
   return (
@@ -68,7 +78,8 @@ export default function UploadPage() {
               <Radio className='text-gray-400' value="physics">Physics</Radio>
             </Radio.Group>
             </form>
-            <Button type="primary" className="custom-button mb-4" ghost>
+            <Button type="primary" className="custom-button mb-4" onClick={handleOpenModal}  ghost>
+            
             Create Space
             </Button>
         </div>
@@ -93,6 +104,7 @@ export default function UploadPage() {
         <h1 className="text-gray-400 text-6xl font-bold"><DesktopOutlined /></h1>
         <h1 className="text-gray-400 text-4xl font-bold">Your Workspace</h1>
       </div>
+      <CreateSpaceModal visible={isModalVisible} onClose={handleCloseModal} />
     </div>
   );
 }

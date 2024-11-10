@@ -2,31 +2,11 @@
 "use client";
 
 import { useState } from 'react';
-import { InboxOutlined, LeftOutlined, RightOutlined, DesktopOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
-import type { UploadProps } from 'antd';
+import {  LeftOutlined, RightOutlined, DesktopOutlined } from '@ant-design/icons';
 
-const { Dragger } = Upload;
 
-const draggerProps: UploadProps = {
-  name: 'file',
-  multiple: true,
-  action: '/api/upload', // Update the action URL to your API endpoint
-  onChange(info) {
-    const { status } = info.file;
-    if (status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully.`);
-    } else if (status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-  onDrop(e) {
-    console.log('Dropped files', e.dataTransfer.files);
-  },
-};
+
+
 
 export default function UtilityBarLayout() {
   const [utilityBarVisible, setUtilityBarVisible] = useState(true);
