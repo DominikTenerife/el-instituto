@@ -58,17 +58,17 @@ export default function UploadPage() {
         </div>
 
         <div className="mt-8 w-full max-w-lg p-2.5 text-white">
-          <h2 className="text-2xl font-bold mb-4">My Spaces</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-400">My Spaces</h2>
           
-            <form className='text-white mb-4'>
-            <Radio.Group className='text-white'>
-              <Radio className='text-white' value="biology">Biology</Radio>
-              <Radio className='text-white' value="literature" >Literature</Radio>
-              <Radio className='text-white' value="geography">Geography</Radio>
-              <Radio className='text-white' value="physics">Physics</Radio>
+            <form className='text-gray-400 mb-4'>
+            <Radio.Group className='text-gray-400'>
+              <Radio className='text-gray-400' value="biology">Biology</Radio>
+              <Radio className='text-gray-400' value="literature" >Literature</Radio>
+              <Radio className='text-gray-400' value="geography">Geography</Radio>
+              <Radio className='text-gray-400' value="physics">Physics</Radio>
             </Radio.Group>
             </form>
-            <Button type="primary" className="mb-4 border-gray-600 text-white hover:border-white hover:text-white" ghost>
+            <Button type="primary" className="custom-button mb-4" ghost>
             Create Space
             </Button>
         </div>

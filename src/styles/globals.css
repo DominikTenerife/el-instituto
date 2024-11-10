@@ -79,3 +79,16 @@ body {
   border-color: #ffffff !important; /* White color on hover */
   color: #ffffff !important; /* White color on hover */
 }
+
+/* Custom styles for Ant Design Button */
+.custom-button {
+  
+  border-color: #9ca3af !important; /* Grey color */
+  color: #9ca3af !important; /* Grey color */
+}
+
+.custom-button:hover {
+  
+  border-color: #ffffff !important; /* White color on hover */
+  color: #ffffff !important; /* White text on hover */
+}
