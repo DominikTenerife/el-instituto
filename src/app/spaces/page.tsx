@@ -1,7 +1,7 @@
 // src/app/upload/page.tsx
 "use client";
 
-import { InboxOutlined } from '@ant-design/icons';
+import { InboxOutlined, LeftOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
 import type { UploadProps } from 'antd';
 
@@ -30,14 +30,18 @@ const draggerProps: UploadProps = {
 export default function UploadPage() {
   return (
     <div className="flex min-h-screen w-full">
-      <div className="w-1/3 bg-slate-900 flex items-center justify-center slide-in">
+      
+      <div className="w-1/3 bg-slate-900 flex items-center justify-center relative slide-in">
         <div className="mt-8 w-full max-w-lg p-2.5">
+          <div>
+            <h1><LeftOutlined style={{color:"#fff", fontSize:"3rem"}} /></h1>
+          </div>
           <Dragger {...draggerProps} style={{backgroundColor:"#0f172a"}} >
             <p className="ant-upload-drag-icon">
-              <InboxOutlined style={{color:"#fff"}} />
+              <InboxOutlined style={{color:"grey"}} />
             </p>
-            <p style={{  color: '#fff' }} >Click or drag file to this area to upload</p> <br />
-            <p  style={{  color: '#fff' }}>
+            <p style={{  color: 'grey' }} >Click or drag file to this area to upload</p> <br />
+            <p  style={{  color: 'grey' }}>
               Support for a single or bulk upload. You can upload pdf, docx, xlsx, text files.
             </p>
           </Dragger>
