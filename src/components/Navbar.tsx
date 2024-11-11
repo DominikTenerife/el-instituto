@@ -74,15 +74,15 @@ export default function Navbar() {
   };
 
   return (
-    <div className="h-screen w-64 bg-gray-900 relative flex flex-col justify-between">
+    <div className="h-screen w-64 bg-gray-900 relative flex flex-col justify-between z-10">
       <div>
-        <Menu mode="vertical" theme="dark" items={items} className="bg-gray-900" />
+      <Menu mode="vertical" theme="dark" items={items} className="bg-gray-900" />
       </div>
       <div className="p-4">
-        <Radio.Group onChange={handleToggleDarkMode} value={isDarkMode ? 'dark' : 'light'} className="flex flex-col space-y-2">
-          <Radio value="light" className="text-white">Light Mode</Radio>
-          <Radio value="dark" className="text-white">Dark Mode</Radio>
-        </Radio.Group>
+      <Radio.Group onChange={handleToggleDarkMode} value={isDarkMode ? 'dark' : 'light'} className="flex flex-col space-y-2">
+        <Radio value="light" className="text-white">Light Mode</Radio>
+        <Radio value="dark" className="text-white">Dark Mode</Radio>
+      </Radio.Group>
       </div>
     </div>
   );
