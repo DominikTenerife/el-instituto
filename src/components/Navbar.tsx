@@ -7,7 +7,7 @@ import type { MenuProps } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { setDarkMode } from '@/redux/slices/darkModeSlice';
-import { ChangeEvent } from 'react';
+import { RadioChangeEvent } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -69,7 +69,7 @@ export default function Navbar() {
   const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
   const dispatch = useDispatch();
 
-  const handleToggleDarkMode = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleToggleDarkMode = (e: RadioChangeEvent) => {
     dispatch(setDarkMode(e.target.value === 'dark'));
   };
 
