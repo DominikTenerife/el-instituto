@@ -3,7 +3,8 @@
 
 import { useState } from 'react';
 import {  LeftOutlined, RightOutlined, DesktopOutlined } from '@ant-design/icons';
-
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
 
 
@@ -13,6 +14,7 @@ export default function UtilityBarLayout() {
   const [widths, setWidths] = useState({ left: 'w-1/3', right: 'w-2/3' });
   const [utilityBarDisplay, setUtilityBarDisplay] = useState('block');
   const [rightArrowDisplay, setRightArrowDisplay] = useState('hidden');
+  const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
 
   const handleHideUtilityBar = () => {
     setUtilityBarVisible(false);
@@ -41,7 +43,7 @@ export default function UtilityBarLayout() {
           <h3>Add some content here</h3>
         </div>
       </div>
-      <div className={`${widths.right} bg-transparent flex flex-col items-center justify-center relative`}>
+      <div className={`${widths.right} ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-transparent text-black'} flex flex-col items-center justify-center relative`}>
         <div className={`absolute top-4 left-4 ${rightArrowDisplay}`} onClick={handleShowUtilityBar } title='Show utility bar'>
           <RightOutlined className="text-gray-400 hover:text-black text-3xl cursor-pointer" />
         </div>
