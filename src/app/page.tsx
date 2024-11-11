@@ -7,8 +7,15 @@ export default function Home() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="text-center flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4">El Instituto</h1>
-        <h3 className="text-2xl font-semibold mb-4">Your Private Spanish School Tutor</h3>
+        <Image
+        src= "/images/logo-black-transparent-img.png"
+        alt="Logo"
+        width={250}
+        height={125}
+        className="rounded-md mb-4"
+         />
+        
+        <h3 className="text-2xl font-semibold mb-4 italic">Your Spanish Tutor</h3>
         <Image
           src="/images/teenagers.png"
           alt="Teenagers"
