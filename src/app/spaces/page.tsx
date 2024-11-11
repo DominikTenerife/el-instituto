@@ -2,10 +2,13 @@
 "use client";
 
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { InboxOutlined, LeftOutlined, RightOutlined, DesktopOutlined } from '@ant-design/icons';
-import { message, Upload, Radio,  Button } from 'antd';
+import { message, Upload, Radio, Button  } from 'antd';
 import type { UploadProps } from 'antd';
 import CreateSpaceModal from '@/components/modals/CreateSpaceModal';
+import { RootState } from '@/redux/store';
+
 
 const { Dragger } = Upload;
 
@@ -35,6 +38,8 @@ export default function UploadPage() {
   const [utilityBarDisplay, setUtilityBarDisplay] = useState('block');
   const [rightArrowDisplay, setRightArrowDisplay] = useState('hidden');
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
+  
 
   const handleHideUtilityBar = () => {
     setUtilityBarVisible(false);
@@ -59,6 +64,8 @@ export default function UploadPage() {
   const handleCloseModal = () => {
     setIsModalVisible(false);
   };
+
+  
 
   return (
     <div className="flex min-h-screen w-full">
@@ -95,9 +102,9 @@ export default function UploadPage() {
             </p>
           </Dragger>
         </div>
-       
+        
       </div>
-      <div className={`${widths.right} bg-transparent flex flex-col items-center justify-center relative`}>
+      <div className={`${widths.right} ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-transparent text-black'} flex flex-col items-center justify-center relative`}>
         <div className={`absolute top-4 left-4 ${rightArrowDisplay}`} onClick={handleShowUtilityBar} title="Show utility bar">
           <RightOutlined className="text-gray-400 hover:text-black text-3xl cursor-pointer" />
         </div>

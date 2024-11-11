@@ -1,8 +1,12 @@
+'use client';
 // src/components/Navbar.tsx
 import Link from 'next/link';
-import { Menu } from 'antd';
+import { Menu, Radio } from 'antd';
 import { FolderOutlined, HomeOutlined, CalculatorOutlined, ReadOutlined, MessageOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/redux/store';
+import { setDarkMode } from '@/redux/slices/darkModeSlice';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -61,17 +65,24 @@ const items: MenuItem[] = [
 ];
 
 export default function Navbar() {
+  const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
+  const dispatch = useDispatch();
+
+  const handleToggleDarkMode = (e) => {
+    dispatch(setDarkMode(e.target.value === 'dark'));
+  };
+
   return (
-    <div className="h-screen w-100 bg-gray-900 relative z-50 rounded-md">
-      <div className="text-white text-2xl font-bold p-4">
-        El Instituto
+    <div className="h-screen w-64 bg-gray-900 relative flex flex-col justify-between">
+      <div>
+        <Menu mode="vertical" theme="dark" items={items} className="bg-gray-900" />
       </div>
-      <Menu
-        mode="vertical"
-        theme="dark"
-        items={items}
-        className="bg-gray-900"
-      />
+      <div className="p-4">
+        <Radio.Group onChange={handleToggleDarkMode} value={isDarkMode ? 'dark' : 'light'} className="flex flex-col space-y-2">
+          <Radio value="light" className="text-white">Light Mode</Radio>
+          <Radio value="dark" className="text-white">Dark Mode</Radio>
+        </Radio.Group>
+      </div>
     </div>
   );
 }
