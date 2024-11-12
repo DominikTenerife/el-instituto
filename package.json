@@ -11,6 +11,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "antd": "^5.21.6",
+    "firebase": "^10.14.1",
+    "firebaseui": "^6.1.0",
     "next": "15.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
