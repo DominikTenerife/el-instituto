@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { setDarkMode } from '@/redux/slices/darkModeSlice';
 import { RadioChangeEvent } from 'antd';
+import Image from 'next/image';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -75,14 +76,21 @@ export default function Navbar() {
 
   return (
     <div className="h-screen w-64 bg-gray-900 relative flex flex-col justify-between z-10">
-      <div>
-      <Menu mode="vertical" theme="dark" items={items} className="bg-gray-900" />
+      <div className="flex flex-col items-center">
+        <Image
+          src="/images/elephant-img.png"
+          alt="Elephant"
+          width={50}
+          height={50}
+          className="rounded-md mt-4"
+        />
+        <Menu mode="vertical" theme="dark" items={items} className="bg-gray-900 mt-8" />
       </div>
       <div className="p-4">
-      <Radio.Group onChange={handleToggleDarkMode} value={isDarkMode ? 'dark' : 'light'} className="flex flex-col space-y-2">
-        <Radio value="light" className="text-white">Light Mode</Radio>
-        <Radio value="dark" className="text-white">Dark Mode</Radio>
-      </Radio.Group>
+        <Radio.Group onChange={handleToggleDarkMode} value={isDarkMode ? 'dark' : 'light'} className="flex flex-col items-center space-y-2">
+          <Radio value="light" className="text-white">Light Mode</Radio>
+          <Radio value="dark" className="text-white">Dark Mode</Radio>
+        </Radio.Group>
       </div>
     </div>
   );
