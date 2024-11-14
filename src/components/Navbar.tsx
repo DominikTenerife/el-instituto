@@ -64,6 +64,13 @@ const items: MenuItem[] = [
     'counter',
     <CalculatorOutlined />
   ),
+  getItem(
+    <Link href="/login" className="text-lg p-2">
+      Login
+    </Link>,
+    'login',
+    <CalculatorOutlined />
+  ),
 ];
 
 export default function Navbar() {
