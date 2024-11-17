@@ -11,7 +11,7 @@ export default function Counter() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold mb-4">Counter Page to Test Redux</h1>
+      <h1 className="text-4xl font-bold mb-4">Counter Page to Test Redux - temporary</h1>
       
       <div className="flex items-center space-x-4 mt-4">
         <Button 
